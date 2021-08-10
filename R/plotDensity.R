@@ -29,6 +29,9 @@ plotDensity <- function(obj, groups = NULL, normalized = FALSE,
   if (length(groups) == 1) {
     groups <- factor(pData(obj)[, groups])
   }
+  else {
+    region <- factor(majorGroups)
+  }
   mat <- extractMatrix(obj, normalized, log = TRUE)
   matdensity(mat, groupFactor = groups, ...)
   if (!is.null(legendPos)) {
